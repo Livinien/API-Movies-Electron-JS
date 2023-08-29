@@ -1,0 +1,23 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "Hello World",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    
+  },
+  "build": {
+    "appId": "com.example.myapp",
+    "asar": true,
+    "icon": "icons/cinema.jpg"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.6.3"
+  }
+}

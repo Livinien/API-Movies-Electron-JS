@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    background-color: rgb(82, 82, 82);
+}
+
+/* HEADER */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* BODY */
+
+.title {
+    margin-top: 200px;
+    margin-left: 30px;
+    padding-bottom: 50px;
+    color: #fff;
+}
+
+/* LISTE DE FILMS */
+
+.popular-movie, .results-movies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.movie {
+    padding: 40px 30px;
+}
+
+.poster_movie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: -2px 0px 15px 5px rgba(0,0,0,0.47);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.poster_movie:hover {
+    transform: scale(1.1);
+}
+
+.title_movie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 40px 0px;
+    cursor: pointer;
+}
+
+
+/* DÉTAILS DE LA FICHE TECHNIQUE D'UN FILM */
+
+.movieDetails {
+    padding: none;
+}
+
+.features-movies {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    margin-top: 100px;
+}
+
+.poster_movie_details {
+    height: 70%;
+    width: 25%;
+    margin-top: 500px;
+    border-radius: 10px;
+    box-shadow: -2px 0px 15px 5px rgba(0,0,0,0.47);
+}
+
+.poster_movie_details:hover {
+    transform: none;
+}
+
+.titleDetails {
+    margin-top: 40px;
+    color: #fff;
+}
+
+.origin-movie, .year {
+    color: #fff;
+    padding: 10px 0 30px 0;
+}
+
+.genres span, .duration {
+    color: #fff;
+    padding: 10px 0 40px 0;
+    margin: 10px;
+}
+
+.main-actors {
+    display: flex;
+    justify-content: center;
+}
+
+.actor {
+    padding: 25px;
+}
+
+.actor-name {
+    color: #fff;
+}
+
+
+
+/* FICHE TECHNIQUE */
+
+.synopsis {
+    text-align: center;
+    margin: 40px 30px 42px 30px;
+    color: #fff;
+}
+
+
+
+/* MEDIA QUERIES DES AFFICHES DE FILMS */
+
+@media (max-width: 467px) {
+    
+    .poster_movie {
+        height: 350px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .movie {
+        margin: 40px 10px;
+    }
+    
+    .poster_movie {
+        height: 300px;
+        width: 250px;
+    }
+}

@@ -1,0 +1,3 @@
+node_modules
+dist
+dist/mac/electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
