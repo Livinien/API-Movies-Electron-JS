@@ -97,7 +97,7 @@ body {
     color: #fff;
 }
 
-.origin-movie, .year {
+.origin-movie, .year, .noFilm {
     color: #fff;
     padding: 10px 0 30px 0;
 }

@@ -7,7 +7,7 @@ function moviesApi() {
   const URLPARAM = new URLSearchParams(window.location.search);
   const MOVIEID = URLPARAM.get("id")
 
-  // Récupérer les films grâce à l'adresse de l'api et le fetch
+  // Récupérer les films grâce à l'adresse de l'api et le fetch.
   let movies = fetch(`https://api.themoviedb.org/3/movie/${MOVIEID}?api_key=${API_KEY}&language=fr-FR&append_to_response=credits,images`)
   .then(response => response.json())
   .then(data => {
@@ -16,12 +16,12 @@ function moviesApi() {
 
     const detailsMovies = document.getElementById("detailsMovies");
     
-    // Création de la div parent pour afficher la fiche technique d'un film
+    // Création de la div parent pour afficher la fiche technique d'un film.
     let moviesDiv = document.createElement("div");
     moviesDiv.setAttribute("class", "movieDetails");
 
     
-    // Création de la balise image pour afficher le poster du film
+    // Création de la balise image pour afficher le poster du film.
     let posterMovie = document.createElement("img");
     posterMovie.setAttribute("class", "poster_movie_details");
     posterMovie.src = "https://www.themoviedb.org/t/p/w188_and_h282_bestv2" + data.poster_path;
@@ -29,35 +29,35 @@ function moviesApi() {
     detailsMovies.appendChild(moviesDiv);
 
 
-    // Création de la balise title pour afficher le titre du film
+    // Création de la balise title pour afficher le titre du film.
     let title = document.createElement("h5");
     title.setAttribute("class", "titleDetails");
     title.textContent = data.title;
     moviesDiv.appendChild(title);
 
 
-    // Afficher le synopsis d'un film
+    // Afficher le synopsis du film.
     let synopsisDiv = document.createElement("div");
     synopsisDiv.setAttribute("class", "synopsis");
     synopsisDiv.textContent = data.overview;  
     detailsMovies.appendChild(synopsisDiv);
 
 
-    // Afficher l'origine du pays du film
+    // Afficher l'origine du pays du film.
     let originDiv = document.createElement("div");
     originDiv.setAttribute("class", "origin-movie");
     originDiv.textContent = "Origine : " + data.production_countries.map(country => country.name).join(', ');;  
     detailsMovies.appendChild(originDiv);
 
 
-    // Afficher l'année de la sortie du film
+    // Afficher l'année de la sortie du film.
     let yearDiv = document.createElement("div");
     yearDiv.setAttribute("class", "year");
     yearDiv.textContent = "Année de sortie : " + data.release_date;;  
     detailsMovies.appendChild(yearDiv);
    
 
-    // Afficher le(s) genre(s) du film
+    // Afficher le(s) genre(s) du film.
     const genresDiv = document.createElement("div");
     genresDiv.setAttribute("class", "genres");
 
@@ -70,14 +70,14 @@ function moviesApi() {
     detailsMovies.appendChild(genresDiv);
 
 
-    // Afficher la durée du film
+    // Afficher la durée du film.
     const durationDiv = document.createElement("div");
     durationDiv.setAttribute("class", "duration");
     durationDiv.textContent = `Durée : ${data.runtime} minutes`;
     detailsMovies.appendChild(durationDiv);
 
 
-    // Afficher les acteurs principaux du film
+    // Afficher les acteurs principaux du film.
     const mainActorsDiv = document.createElement("div");
     mainActorsDiv.setAttribute("class", "main-actors");
 

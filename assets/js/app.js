@@ -52,7 +52,7 @@ moviesApi();
 
 const API_KEY = '8ce9f8f28953d4d7871c62b5ac654555';
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(query)}';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200'; // Taille de l'image, vous pouvez changer "w200" pour d'autres tailles disponibles.
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w200';
 
 const searchBar = document.getElementById('searchBar');
 const resultsMovies = document.getElementById('resultsMovies');
@@ -60,6 +60,7 @@ const resultsMovies = document.getElementById('resultsMovies');
 
 searchBar.addEventListener('input', debounce(handleSearch, 300));
 
+// Le délai de réponse lorsqu'on tape un titre dans l'input (barre de recherche).
 function debounce(func, delay) {
   let timer;
   return function () {
@@ -76,7 +77,8 @@ async function handleSearch() {
   
   if (searchTerm === '') {
     resultsMovies.innerHTML = '';
-    // Réapparition de la liste de films dans container-movies
+
+    // Afficher les films qui se trouvent sur la page d'accueil (container-movies).
     allPopularMovies.forEach(apiMovies => {
       apiMovies.style.display = "block";
     })
@@ -84,6 +86,7 @@ async function handleSearch() {
   }
 
   try {
+    // Effectuer une recherche de films à partir de l'API en fonction de la recherche entrée par l'utilisateur dans la barre de recherche.
     const response = await fetch(`${'https://api.themoviedb.org/3/'}/search/movie?api_key=${'8ce9f8f28953d4d7871c62b5ac654555'}&query=${encodeURIComponent(searchTerm)}`);
     const data = await response.json();
     const movies = data.results;
@@ -98,13 +101,19 @@ function displayResults(movies) {
   const allPopularMovies = popularMovie.querySelectorAll(".movie");
   resultsMovies.innerHTML = '';
 
+  // Si la recherche ne trouve aucun film correspondant au(x) titre(s) qui a été taper dans la barre de recherche, tu affiches le message suivant.
   if (movies.length === 0) {
-    resultsMovies.innerHTML = '<p>Aucun film trouvé</p>';
+    resultsMovies.innerHTML = '<p class="noFilm">Aucun film trouvé</p>';
+
+    // S'il n'y a aucun film trouvé alors tu m'affiches uniquement le paragraphe et tu me caches les films qui se trouvent sur la page d'accueil.
+    allPopularMovies.forEach(apiMovies => {
+      apiMovies.style.display = "none";
+    })
     return;
   }
 
-  // Pour chaque film trouvé, tu m'affiches son titre et son affiche
 
+  // Pour chaque film trouvé, tu m'affiches son titre et son affiche.
   movies.forEach((movie) => {
     const movieDiv = document.createElement('a');
     movieDiv.setAttribute("class", "movie");
@@ -126,8 +135,8 @@ function displayResults(movies) {
     resultsMovies.appendChild(movieDiv);
   });
 
-  // Au moment de l'affichage des résultats depuis la barre de recherche, tu me caches les films présents sur la page d'accueil
 
+  // Au moment de l'affichage des résultats depuis la barre de recherche, tu me caches les films présents sur la page d'accueil.
   allPopularMovies.forEach(apiMovies => {
     apiMovies.style.display = "none";
   })
