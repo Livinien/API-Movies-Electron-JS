@@ -57,7 +57,7 @@ function moviesApi() {
     detailsMovies.appendChild(yearDiv);
    
 
-    // Afficher le(s) genres du film
+    // Afficher le(s) genre(s)s du film
     const genresDiv = document.createElement("div");
     genresDiv.setAttribute("class", "genres");
 
