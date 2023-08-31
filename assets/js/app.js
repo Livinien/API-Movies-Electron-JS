@@ -14,6 +14,7 @@ function moviesApi() {
 
     let movies_results = data.results;
 
+    // Boucle "for" pour récupérer les films disponibles (affiche du film et son titre) sur l'api pour les afficher sur la page d'accueil.
     for(let i = 0; i < movies_results.length; i++)  {
       
       let apiMovies = document.getElementById("popularMovie");

@@ -7,7 +7,7 @@ function moviesApi() {
   const URLPARAM = new URLSearchParams(window.location.search);
   const MOVIEID = URLPARAM.get("id")
 
-  // Récupérer les films grâce à l'adresse de l'api et le fetch.
+  // Récupérer les informations de la fiche technique d'un film grâce à l'adresse de l'api et le fetch.
   let movies = fetch(`https://api.themoviedb.org/3/movie/${MOVIEID}?api_key=${API_KEY}&language=fr-FR&append_to_response=credits,images`)
   .then(response => response.json())
   .then(data => {
@@ -61,6 +61,7 @@ function moviesApi() {
     const genresDiv = document.createElement("div");
     genresDiv.setAttribute("class", "genres");
 
+    // Boucle "forEach" permettant de trouver le(s) genre(s) du film
     data.genres.forEach(genre => {
       const genreSpan = document.createElement("span");
       genreSpan.textContent = genre.name;
@@ -81,7 +82,7 @@ function moviesApi() {
     const mainActorsDiv = document.createElement("div");
     mainActorsDiv.setAttribute("class", "main-actors");
 
-
+    // Boucle "forEach" permettant de trouver tous les acteurs du film et de gérer sa quantité au niveau de l'affichage grâce à sa condition "if".
     data.credits.cast.forEach(actor => {
       if (actor.order < 5) { 
       
